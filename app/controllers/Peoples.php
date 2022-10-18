@@ -24,9 +24,9 @@ class People extends Controller
             $rows .= "<tr>
                         <td>$items->id</td>
                         <td>$items->Name</td>
-                        <td>$items->CapitalCity</td>
-                        <td>$items->Continent</td>
-                        <td>$items->Population</td>
+                        <td>$items->Nettoworth</td>
+                        <td>$items->Age</td>
+                        <td>$items->Company</td>
                         <td><a href='" . URLROOT . "/Peoples/update/$items->id'>Update</a></td>
                         <td><a href='" . URLROOT . "/Peoples/delete/$items->id'>Delete</a></td>
                        </tr>"; 
