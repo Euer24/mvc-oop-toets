@@ -3,7 +3,7 @@
  * Dit is de model van de controller
  */
 
-class Country
+class People
 {
     //properties
     private $db;
@@ -13,63 +13,63 @@ class Country
         $this->db = new Database();
     }
 
-    public function getCountries()
+    public function getPeoples()
     {
-        $this->db->query('SELECT * FROM Country');
+        $this->db->query('SELECT * FROM People');
         return $this->db->resultSet();
     }
 
-    public function getSingleCountry($id)
+    public function getSinglePeople($id)
     {
-        $this->db->query('SELECT * FROM Country WHERE id = :id');
+        $this->db->query('SELECT * FROM People WHERE id = :id');
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->single();
     }
 
-    public function updateCountry($post)
+    public function updatePeople($post)
     {
-        $this->db->query("UPDATE country
+        $this->db->query("UPDATE people
                             SET Name = :name,
-                                CapitalCity = :capitalcity,
-                                Continent = :continent,
-                                Population = :population
+                            Nettoworth = :Nettoworth,
+                            Age = :Age,
+                            Company = :Company
                             WHERE id = :id");
-
+    // hier naam change?
         $this->db->bind(':id', $post['id'], PDO::PARAM_INT);
         $this->db->bind(':name', $post['name'], PDO::PARAM_STR);
-        $this->db->bind(':capitalcity', $post['Vermogen'], PDO::PARAM_STR);
-        $this->db->bind(':continent', $post['Leeftijd'], PDO::PARAM_STR);
-        $this->db->bind(':population', $post['Bedrijf'], PDO::PARAM_INT);
+        $this->db->bind(':Nettoworth', $post['Vermogen'], PDO::PARAM_STR);
+        $this->db->bind(':Age', $post['Age'], PDO::PARAM_STR);
+        $this->db->bind(':Company', $post['Company'], PDO::PARAM_INT);
 
         return $this->db->execute();
     }
 
-    public function deleteCountry($id) {
+    public function deletePeople($id) {
 
-        $this->db->query("DELETE FROM country WHERE id = :id");
+        $this->db->query("DELETE FROM people WHERE id = :id");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->execute();
     }
 
-    public function createCountry($post)
+    public function createPeople($post)
     {
         //var_dump($post);exit();
-        $this->db->query("INSERT INTO country (id,
+        $this->db->query("INSERT INTO people (id,
                         Name,
-                        Vermogen,
-                        Leeftijd,
-                        Bedrijf )
+                        Nettoworth,
+                        Age,
+                        Company )
             VALUES     (:id,
                         :name,
-                        :Vermogen,
-                        :Leeftijd,
-                        :Bedrijf)");
+                        :Nettoworth,
+                        :Age,
+                        :Company)");
 
         $this->db->bind(':id',NULL, PDO::PARAM_NULL);
         $this->db->bind(':name',$post['name'], PDO::PARAM_STR);
-        $this->db->bind(':Vermogen',$post['Vermogen'], PDO::PARAM_STR);
-        $this->db->bind(':Leeftijd',$post['Leeftijd'], PDO::PARAM_STR);
-        $this->db->bind(':Bedrijf',$post['Bedrijf'], PDO::PARAM_INT);
+        $this->db->bind(':Nettoworth',$post['Nettoworth'], PDO::PARAM_STR);
+        $this->db->bind(': Age',$post['Age'], PDO::PARAM_STR);
+        $this->db->bind(':Company',$post['Company'], PDO::PARAM_INT);
         return $this->db->execute();
     }
 

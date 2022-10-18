@@ -3,19 +3,19 @@
 class People extends Controller
 {
     //properties
-    private $countryModel;
+    private $peopleModel;
 
     // Dit is de contructor van de controller
     public function __construct()
     {
         // Dit is de model van de controller
-        $this->countryModel = $this->model('People');
+        $this->peopleModel = $this->model('People');
     }
 
 
     public function index($land = 'Nederland', $age = 21)
     {
-        $records = $this->countryModel->getPeople();
+        $records = $this->peopleModel->getPeople();
 
         $rows = '';
 
@@ -47,10 +47,10 @@ class People extends Controller
         //var_dump($_SERVER);exit();
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $this->countryModel->updateCountry($_POST);
+        $this->peopleModel->updatePeople($_POST);
         header("Location: " . URLROOT . "/Peoples/index");
         } else {
-            $row = $this->countryModel->getSingleCountry($id);
+            $row = $this->peopleModel->getSinglePeople($id);
             $data = [
                 'title' => '<h1>Update land</h1>',	
                 'row' => $row
@@ -62,13 +62,13 @@ class People extends Controller
 
     public function delete($id = null){
         //echo $id;exit();
-        $this->countryModel->deleteCountry();
+        $this->peopleModel->deletepeople();
         $data =[
             'deleteStatus' => "Het record met id  = $id is verwijderd"
 
         ];
-        $this->view("countries/delete", $data); 
-        header("Refresh:2; url=" . URLROOT . "/countries/index");
+        $this->view("Peoples/delete", $data); 
+        header("Refresh:2; url=" . URLROOT . "/Peoples/index");
         } 
     
 
@@ -77,7 +77,7 @@ class People extends Controller
         $data = [
             'title' => 'Tijd voor een pro PHP moment',
         ];
-        $this->view('countries/test', $data);
+        $this->view('Peoples/test', $data);
     }
 
     public function create()
@@ -86,20 +86,20 @@ class People extends Controller
             // POST schoonmaken
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            $result = $this -> countryModel->createCountry($_POST);
+            $result = $this -> peopleModel->createPeople($_POST);
 
             if ($result) {
                 echo "Het is gelukt!";
-                header("Refresh:3; URL=" . URLROOT . "/countries/index");
+                header("Refresh:3; URL=" . URLROOT . "/Peoples/index");
             } else {
                 echo "Het is niet gelukt!";
-                header("Refresh:3; URL=" . URLROOT . "/countries/index");
+                header("Refresh:3; URL=" . URLROOT . "/Peoples/index");
             }
         }
         
         $data = [
             'title' => 'voeg een nieuw land toe'
         ];
-        $this->view('countries/create', $data);
+        $this->view('Peoples/create', $data);
     }
 }
