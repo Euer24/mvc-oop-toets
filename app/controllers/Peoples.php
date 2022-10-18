@@ -1,6 +1,6 @@
 <?php
 
-class People extends Controller
+class Peoples extends Controller
 {
     //properties
     private $peopleModel;

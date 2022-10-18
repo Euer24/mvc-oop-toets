@@ -6,7 +6,7 @@ class Landingpages extends Controller
     {
         $data = [
             'title' => 'Homepage MVC',
-            'sayHello' => 'Dit is mijn toets',  
+            'sayHello' => 'De toets',  
         ];
         $this->view('landingpages/index', $data);
     }

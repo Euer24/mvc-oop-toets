@@ -10,12 +10,12 @@
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="capitalcity" id="Capitalcity">
+                    <input type="text" name="Nettoworth" id="NettoWorth">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="continent" id="continent">
+                    <input type="text" name="continent" id="Age">
                 </td>
             </tr>
             <tr>

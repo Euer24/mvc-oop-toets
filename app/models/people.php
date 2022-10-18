@@ -13,7 +13,7 @@ class People
         $this->db = new Database();
     }
 
-    public function getPeoples()
+    public function getPeople()
     {
         $this->db->query('SELECT * FROM People');
         return $this->db->resultSet();

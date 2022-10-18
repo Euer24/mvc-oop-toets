@@ -10,17 +10,17 @@
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="capitalcity" id="Capitalcity" value="<?= $data['row']->CapitalCity; ?>">
+                    <input type="text" name="capitalcity" id="Capitalcity" value="<?= $data['row']->Nettoworth; ?>">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" name="continent" id="continent" value="<?= $data['row']->Continent; ?>">
+                    <input type="text" name="continent" id="continent" value="<?= $data['row']->Age; ?>">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="number" name="population" id="name" value="<?= $data['row']->Population; ?>">
+                    <input type="number" name="population" id="name" value="<?= $data['row']->Company; ?>">
                 </td>
             </tr>
             <tr>
