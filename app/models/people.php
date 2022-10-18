@@ -37,9 +37,9 @@ class Country
 
         $this->db->bind(':id', $post['id'], PDO::PARAM_INT);
         $this->db->bind(':name', $post['name'], PDO::PARAM_STR);
-        $this->db->bind(':capitalcity', $post['capitalcity'], PDO::PARAM_STR);
-        $this->db->bind(':continent', $post['continent'], PDO::PARAM_STR);
-        $this->db->bind(':population', $post['population'], PDO::PARAM_INT);
+        $this->db->bind(':capitalcity', $post['Vermogen'], PDO::PARAM_STR);
+        $this->db->bind(':continent', $post['Leeftijd'], PDO::PARAM_STR);
+        $this->db->bind(':population', $post['Bedrijf'], PDO::PARAM_INT);
 
         return $this->db->execute();
     }
@@ -56,20 +56,20 @@ class Country
         //var_dump($post);exit();
         $this->db->query("INSERT INTO country (id,
                         Name,
-                        CapitalCity,
-                        Continent,
-                        Population)
+                        Vermogen,
+                        Leeftijd,
+                        Bedrijf )
             VALUES     (:id,
                         :name,
-                        :CapitalCity,
-                        :Continent,
-                        :Population)");
+                        :Vermogen,
+                        :Leeftijd,
+                        :Bedrijf)");
 
         $this->db->bind(':id',NULL, PDO::PARAM_NULL);
         $this->db->bind(':name',$post['name'], PDO::PARAM_STR);
-        $this->db->bind(':CapitalCity',$post['capitalcity'], PDO::PARAM_STR);
-        $this->db->bind(':Continent',$post['continent'], PDO::PARAM_STR);
-        $this->db->bind(':Population',$post['population'], PDO::PARAM_INT);
+        $this->db->bind(':Vermogen',$post['Vermogen'], PDO::PARAM_STR);
+        $this->db->bind(':Leeftijd',$post['Leeftijd'], PDO::PARAM_STR);
+        $this->db->bind(':Bedrijf',$post['Bedrijf'], PDO::PARAM_INT);
         return $this->db->execute();
     }
 

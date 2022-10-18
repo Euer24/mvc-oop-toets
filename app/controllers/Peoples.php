@@ -1,6 +1,6 @@
 <?php
 
-class Countries extends Controller
+class People extends Controller
 {
     //properties
     private $countryModel;
@@ -9,13 +9,13 @@ class Countries extends Controller
     public function __construct()
     {
         // Dit is de model van de controller
-        $this->countryModel = $this->model('Country');
+        $this->countryModel = $this->model('People');
     }
 
 
     public function index($land = 'Nederland', $age = 21)
     {
-        $records = $this->countryModel->getCountries();
+        $records = $this->countryModel->getPeople();
 
         $rows = '';
 
@@ -27,18 +27,18 @@ class Countries extends Controller
                         <td>$items->CapitalCity</td>
                         <td>$items->Continent</td>
                         <td>$items->Population</td>
-                        <td><a href='" . URLROOT . "/countries/update/$items->id'>Update</a></td>
-                        <td><a href='" . URLROOT . "/countries/delete/$items->id'>Delete</a></td>
+                        <td><a href='" . URLROOT . "/Peoples/update/$items->id'>Update</a></td>
+                        <td><a href='" . URLROOT . "/Peoples/delete/$items->id'>Delete</a></td>
                        </tr>"; 
         }
         
         // var_dump($records);
         $data = [
-            'title' => 'Overzicht van alle landen',
+            'title' => 'Overzicht van alle Rijke mensen',
             'rows' => $rows
         ];
 
-        $this->view('countries/index', $data);
+        $this->view('Peoples/index', $data);
 
     }
 
@@ -48,14 +48,14 @@ class Countries extends Controller
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $this->countryModel->updateCountry($_POST);
-        header("Location: " . URLROOT . "/countries/index");
+        header("Location: " . URLROOT . "/Peoples/index");
         } else {
             $row = $this->countryModel->getSingleCountry($id);
             $data = [
                 'title' => '<h1>Update land</h1>',	
                 'row' => $row
             ];
-            $this->view("countries/update", $data);
+            $this->view("Peoples/update", $data);
         }
         
     }
