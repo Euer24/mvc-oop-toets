@@ -37,7 +37,7 @@ class People
     // hier naam change?
         $this->db->bind(':id', $post['id'], PDO::PARAM_INT);
         $this->db->bind(':name', $post['name'], PDO::PARAM_STR);
-        $this->db->bind(':Nettoworth', $post['Vermogen'], PDO::PARAM_STR);
+        $this->db->bind(':Nettoworth', $post['Nettoworth'], PDO::PARAM_STR);
         $this->db->bind(':Age', $post['Age'], PDO::PARAM_STR);
         $this->db->bind(':Company', $post['Company'], PDO::PARAM_INT);
 

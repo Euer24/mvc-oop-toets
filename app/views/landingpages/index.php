@@ -2,9 +2,9 @@
 <p><?= $data['sayHello']; ?></p>
 <ul>
     <li>
-        <a href="<?= URLROOT; ?>/countries/index">show countries</a>
+        <a href="<?= URLROOT; ?>/Peoples/index">show The Richest</a>
     </li>
     <li>
-        <a href="<?= URLROOT; ?>/countries/test">boodschap nederland</a>
+        <a href="<?= URLROOT; ?>/Peoples/test">boodschap nederland</a>
     </li>
 </ul>

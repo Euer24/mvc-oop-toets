@@ -1,6 +1,6 @@
 <?= $data['title']; ?>
 
-<form action="<?= URLROOT; ?>/countries/create" method="post">
+<form action="<?= URLROOT; ?>/Peoples/create" method="post">
     <table>
         <tbody>
             <tr>

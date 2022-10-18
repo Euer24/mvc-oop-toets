@@ -13,7 +13,7 @@ class People extends Controller
     }
 
 
-    public function index($land = 'Nederland', $age = 21)
+    public function index($land = 'Nederland', $age = 100)
     {
         $records = $this->peopleModel->getPeople();
 
