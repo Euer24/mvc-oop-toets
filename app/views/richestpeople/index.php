@@ -1,6 +1,6 @@
 <h3><?= $data['title'] ?> .</h3>;   
 <p><a href="<?= URLROOT; ?>/richestpeople/create">Nieuw Record</a></p>
-<table>
+<table border="1">
     <thead>
         <th>Id</th>
         <th>Naam</th>

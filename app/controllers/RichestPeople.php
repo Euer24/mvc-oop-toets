@@ -23,8 +23,8 @@ class RichestPeople extends Controller
         {
             $rows .= "<tr>
                         <td>$items->Id</td>
-                        <td>$items->MyName</td>
-                        <td>$items->Networth</td>
+                        <td>$items->Name</td>
+                        <td>$items->Nettoworth</td>
                         <td>$items->Age</td>
                         <td>$items->Company</td>
                         <td><a href='" . URLROOT . "/richestpeople/delete/$items->Id'>Delete</a></td>
